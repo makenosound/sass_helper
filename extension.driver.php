@@ -71,7 +71,7 @@
       {
         @unlink($css_filename);
         # Generate .css via shell command
-        exec($this->sass_exec . escapeshellcmd($sass_filename) . ' ' . escapeshellcmd($css_filename));
+        exec($this->sass_exec . ' ' . escapeshellcmd($sass_filename) . ' ' . escapeshellcmd($css_filename));
       }
       return $css_filename;
     }
