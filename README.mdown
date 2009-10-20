@@ -1,0 +1,43 @@
+# Sass Helper #
+ 
+Version: 1.0.0  
+Author: [Max Wheeler](http://makenosound.com)  
+Build Date: 2009-10-20  
+Compatibility: Tested on Symphony 2.0.6+, should work for all 2.0.x versions
+
+Lets you use Sass ([Syntactically Awesome StyleSheets][1]) for your Symphony site.
+
+## Installation ##
+ 
+1. You'll need to have the Haml gem installed on your server to use this extension (Sass comes bundled with Haml). Please have a look at the Sass website for [installation instructions for Haml/Sass][1]. If you have `ruby` and `rubygems` installed already it should be as simple as:
+
+        sudo gem install haml
+ 
+2. Upload the `sass_helper` folder in this archive to your Symphony `extensions` folder.
+ 
+3. Enable it by selecting the "Sass Helper", choosing "Enable" from the  with-selected menu, then clicking "Apply".
+ 
+4. Links to `.sass` files in your templates will now be automatically converted to CSS.
+
+## Usage ##
+
+To use the Sass Helper you simply need to point your CSS includes to your `.sass` instead of `.css`. The extension will automatically find them and generate a `.css` file in the same directory. For example, this:
+
+    <link href="{$workspace}/stylesheets/screen.sass" media="screen, projection" rel="stylesheet" type="text/css" />
+
+Will be output as:
+
+    <link href="http://domain.com/workspace/stylesheets/screen.css?mod-1248022788" media="screen, projection" rel="stylesheet" type="text/css" />
+
+## Notes ##
+
+As this extension uses the Sass gem to do the conversion you'll need to make sure PHP has access to the `sass` executable or its alias. If the extension isn't working for your out-of-the-box, try setting the `$sass_exec` variable at the top of `extension.driver.php` to the full path to the `sass` executable. It'll be something like `/usr/local/bin/sass`, you should be able to find out by typing `which sass` into the shell on your server.
+
+## Credits ##
+
+The bulk of this extension is based on [80beans' Sass for WordPress plugin][3] and [Rainer Borene's Datestamp Helper extension][4].
+
+[1]: http://sass-lang.com/
+[2]: http://sass-lang.com/download.html
+[3]: http://github.com/80beans/sass-for-wordpress
+[4]: http://github.com/rainerborene/datestamp_helper
